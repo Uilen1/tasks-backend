@@ -33,7 +33,7 @@ public class TaskControllerTest {
 		try {
 			controller.save(todo);
 		} catch (Exception e) {
-			Assert.assertEquals("Fill the task description", e.getMessage());
+			Assert.assertEquals("Fill the tsk description", e.getMessage());
 		}
 	}
 	
