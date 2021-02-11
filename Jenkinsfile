@@ -20,8 +20,10 @@ pipeline {
 
         stage ('API Tests') {
             steps {
-                deploy adapters: [tomcat8(credentialsId: 'tomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
-                bat 'mvn test'
+                dir('api-test') {
+                    deploy adapters: [tomcat8(credentialsId: 'tomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
+                    bat 'mvn test'
+                }
             }
         }
     }
