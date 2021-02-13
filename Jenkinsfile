@@ -36,6 +36,15 @@ pipeline {
                 }
             }
         }
+
+        stage ('Funcional Tests') {
+            steps {
+                dir('funcional-test') {
+                    git credentialsId: 'gitLogin', url: 'https://github.com/Uilen1/tasks-functional-tests'
+                    bat 'mvn test'
+                }
+            }
+        }
     }
 }
 
